@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdovsu3idieb1"]
+
+[ext_resource type="Texture2D" uid="uid://s64c2msbehxr" path="res://assets/PNG/Sprites/Missiles/spaceMissiles_006.png" id="1_opiw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkutt"]
+
+[node name="Bullet" type="CharacterBody2D"]
+position = Vector2(382, 189)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_opiw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(1, 2.1125)
+shape = SubResource("RectangleShape2D_kkutt")
