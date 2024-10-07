@@ -1,25 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://ji0njx27tdtd"]
+[gd_scene load_steps=6 format=3 uid="uid://cacpd8qvulvcp"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_muwhh"]
-[ext_resource type="PackedScene" path="res://bullet.tscn" id="2_6ogbr"]
-[ext_resource type="Texture2D" uid="uid://c4wsdv4vsywyt" path="res://assets/PNG/Sprites/Ships/spaceShips_005.png" id="2_ql5mw"]
+[ext_resource type="Script" path="res://player.gd" id="1_jcss3"]
+[ext_resource type="Texture2D" uid="uid://04l6fjuge313" path="res://assets/PNG/Sprites/Ships/spaceShips_001.png" id="2_m46rs"]
+[ext_resource type="PackedScene" uid="uid://dcn4soippejj5" path="res://bullet.tscn" id="2_tps20"]
+[ext_resource type="Texture2D" uid="uid://cfa8ngqfetkl" path="res://assets/PNG/Sprites/Astronauts/spaceAstronauts_011.png" id="3_jwfmr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_v8hhl"]
-radius = 10.35
+[sub_resource type="CircleShape2D" id="CircleShape2D_5gtcp"]
+radius = 50.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Bullet_Spawn")]
-position = Vector2(534, 304)
-script = ExtResource("1_muwhh")
-Bullet_scene = ExtResource("2_6ogbr")
-Bullet_Spawn = NodePath("Bullet_Spawn")
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("bullet_spawn_point")]
+position = Vector2(254, 215)
+script = ExtResource("1_jcss3")
+bullet_scene = ExtResource("2_tps20")
+bullet_spawn_point = NodePath("bullet_spawn_point")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -0.0124458
-texture = ExtResource("2_ql5mw")
+texture = ExtResource("2_m46rs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7.16, 4.8)
-shape = SubResource("CircleShape2D_v8hhl")
+shape = SubResource("CircleShape2D_5gtcp")
 
-[node name="Bullet_Spawn" type="Marker2D" parent="."]
-position = Vector2(0, 45)
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_jwfmr")
+
+[node name="bullet_spawn_point" type="Marker2D" parent="."]
+position = Vector2(2, 170)
