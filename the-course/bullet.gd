@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Sprite2D
 
 @export var speed = 20
 
@@ -6,8 +6,10 @@ extends CharacterBody2D
 
 	
 func _process(delta):
+	var velocity 
+	
 	velocity = -transform.y * speed
-	var c =  move_and_collide(velocity * delta)
+	var c = move_and_collide(velocity * delta)
 	if c:
 		if c.get_collider().name.contains("block"):
 			c.get_collider().queue_free()

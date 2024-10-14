@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxrviesmj82ve"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_4xgu1"]
+[ext_resource type="Texture2D" uid="uid://cckdvqdt6jds2" path="res://assets/PNG/Sprites X2/Astronauts/spaceAstronauts_006.png" id="1_64ldp"]
+[ext_resource type="Texture2D" uid="uid://b6acfijit28y8" path="res://assets/PNG/Sprites X2/Missiles/spaceMissiles_004.png" id="3_ah2ya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ughwb"]
+size = Vector2(10.5857, 11.0877)
+
+[node name="Root" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(565, 295)
+scale = Vector2(9521.41, 0.895706)
+motion_mode = 1
+script = ExtResource("1_4xgu1")
+
+[node name="Player_Char" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-0.00178545, 280.226)
+rotation = -1.5708
+scale = Vector2(0.580586, 0.00046884)
+skew = -1.45404
+texture = ExtResource("1_64ldp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.00173294, 280.226)
+scale = Vector2(0.000466314, 5.23595)
+shape = SubResource("RectangleShape2D_ughwb")
+
+[node name="Shot_Point" type="Node2D" parent="."]
+position = Vector2(558, 517)
+scale = Vector2(-0.275517, -0.574485)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shot_Point"]
+position = Vector2(-3.8147e-06, 10.4441)
+rotation = 3.13683
+scale = Vector2(0.854801, 0.234147)
+texture = ExtResource("3_ah2ya")
+
+[node name="Bullet_Spawn" type="Marker2D" parent="Shot_Point"]
+position = Vector2(0, 3.48138)

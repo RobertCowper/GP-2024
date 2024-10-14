@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bskjg7vadbnnu"]
+
+[ext_resource type="Texture2D" uid="uid://b6acfijit28y8" path="res://assets/PNG/Sprites X2/Missiles/spaceMissiles_004.png" id="1_v8xeb"]
+[ext_resource type="Script" path="res://bullet.gd" id="2_7ka3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6dx6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Shot_Point" type="Node2D" parent="."]
+position = Vector2(558, 517)
+scale = Vector2(-0.275517, -0.574485)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shot_Point"]
+position = Vector2(-3.8147e-06, 10.4441)
+rotation = 3.13683
+scale = Vector2(0.854801, 0.234147)
+texture = ExtResource("1_v8xeb")
+script = ExtResource("2_7ka3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shot_Point"]
+position = Vector2(0, 10.4441)
+scale = Vector2(1.42554, 1.19298)
+shape = SubResource("RectangleShape2D_d6dx6")
