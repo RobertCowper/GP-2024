@@ -59,3 +59,7 @@ fire={
 [physics]
 
 2d/default_gravity=0.0
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
