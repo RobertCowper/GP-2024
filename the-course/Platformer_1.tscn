@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://be5je7jl2svjw"]
+
+[ext_resource type="Texture2D" uid="uid://dnku55dcgmtb2" path="res://icon.svg" id="1_a05nb"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="2_6soe5"]
+[ext_resource type="Script" path="res://coin.gd" id="3_xt14k"]
+[ext_resource type="Script" path="res://enemy_dude.gd" id="4_idohv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgabq"]
+size = Vector2(386, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ce74"]
+size = Vector2(43, 39)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqa73"]
+size = Vector2(12, 51)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d535d"]
+radius = 293.002
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(577, 447)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform"]
+position = Vector2(1.50003, 1.49999)
+rotation = -3.141
+scale = Vector2(3.0066, 0.370623)
+texture = ExtResource("1_a05nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_pgabq")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(474, 431)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+position = Vector2(-283.5, -19)
+rotation = -3.141
+scale = Vector2(3.06912, 0.394023)
+texture = ExtResource("1_a05nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(-283, -19)
+shape = SubResource("RectangleShape2D_pgabq")
+
+[node name="Platform3" type="StaticBody2D" parent="."]
+position = Vector2(914, 385)
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform3"]
+position = Vector2(-283.5, -19)
+rotation = -3.141
+scale = Vector2(3.06912, 0.394023)
+texture = ExtResource("1_a05nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(-283, -19)
+shape = SubResource("RectangleShape2D_pgabq")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(202, 363)
+script = ExtResource("2_6soe5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-1, 2)
+scale = Vector2(0.335938, 0.3125)
+texture = ExtResource("1_a05nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_7ce74")
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(543, 311)
+script = ExtResource("3_xt14k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(1, -1.90735e-06)
+scale = Vector2(0.0898438, 0.394531)
+texture = ExtResource("1_a05nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_hqa73")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(635, 322)
+script = ExtResource("4_idohv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
+position = Vector2(0.499994, 8.99999)
+scale = Vector2(0.335938, 0.125)
+texture = ExtResource("1_a05nb")
+
+[node name="Area2D" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Area2D"]
+position = Vector2(1, 8)
+shape = SubResource("CircleShape2D_d535d")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="Enemy/Area2D" to="Enemy" method="_on_area_2d_body_entered"]
